@@ -1,14 +1,27 @@
 <template>
   <div class="sample">
-    <div ref="content">
-      <h2>SAMPLE</h2>
-    </div>
-    <div ref="result">
-    </div>
-    <hr>
-    <div>
-      <button @click="save">保存</button>
-    </div>
+    <v-row>
+      <v-col cols=6>
+        <div ref="content" class="doc" style="width:300px">
+          <p style="font-size:6px; text-align: center;">
+          コンポーネントにダークテーマを適応します。詳しく知りたい場合は
+          コンポーネントにダークテーマを適応します。詳しく知りたい場合は
+          コンポーネントにダークテーマを適応します。詳しく知りたい場合は
+          コンポーネントにダークテーマを適応します。詳しく知りたい場合は
+        </p>
+        </div>
+      </v-col>
+      <v-col cols=6>
+        <div class="reportContainer">
+          <div class="reportBox">
+            <div ref="result" class="report"></div>
+          </div>
+        </div>
+        <div>
+          <v-btn @click="save" class="saveButton" color="primary">PDFで保存</v-btn>
+        </div>
+      </v-col>
+    </v-row>
   </div>
 </template>
 
@@ -18,17 +31,30 @@ import jsPDF from 'jspdf'
 
 export default {
   name: 'Sample',
+  data: function() {
+    return {
+      'canvasOption': {
+        'backgroundColor': '#cfccdd',
+        'width': 595,
+        'height': 841,
+      },
+      'pdfOption': {
+        'format': 'a4',
+        'unit': 'px',
+      },
+    }
+  },
   props: {},
   mounted: function() {
-    html2canvas(this.$refs.content).then((canvas) => {
+    html2canvas(this.$refs.content, this.canvasOption).then((canvas) => {
       this.$refs.result.appendChild(canvas)
     })
   },
   methods: {
     "save": function() {
-      let pdf = new jsPDF()
-      html2canvas(this.$refs.content).then((canvas) => {
-        pdf.addImage(canvas.toDataURL(), 'JPEG', 0, 0, 200, 0)
+      let pdf = new jsPDF(this.pdfOption)
+      html2canvas(this.$refs.content, this.canvasOption).then((canvas) => {
+        pdf.addImage(canvas.toDataURL(), 'JPEG', 0, 0, 595, 0)
         pdf.save('test.pdf')
       })
     },
@@ -37,5 +63,36 @@ export default {
 </script>
 
 <style scoped>
+  .sample {
+    margin: 0 30px;
+  }
 
+  .reportContainer {
+    position: fixed;
+    width: 48%;
+    height: 96%;
+    right: 1%;
+    overflow: scroll;
+  }
+
+  .reportBox {
+    width: 100%;
+  }
+
+  .report {
+    height: 950px;
+    margin-bottom: 20px;
+  }
+
+  .saveButton {
+    position: fixed;
+    right: 20px;
+    top: 730px;
+  }
+
+  .doc {
+    /*display: none;*/
+    border: 1px solid #ccc;
+    background-color: #eee;
+  }
 </style>
