@@ -34,16 +34,32 @@ export default {
   name: 'Sample',
   data: function() {
     return {
-      imageURL: '',
+      // for html2canvas
+      // see: https://html2canvas.hertzen.com/configuration
       canvasOption: {
         'backgroundColor': '#cfccdd',
         'width': 595,  // A4 サイズ
         'height': 841, // A4 サイズ
       },
+
+      // for jsPDF
+      // see: https://rawgit.com/MrRio/jsPDF/master/docs/jsPDF.html
       pdfOption: {
         'format': 'a4',
         'unit': 'px',
       },
+
+      // sample data
+      // see: https://ranking.goo.ne.jp/column/6231/ranking/52356/
+      sampleData: [
+        {name: "U.F.O.", rank: 1, point: 826},
+        {name: "ペヤング", rank: 2, point: 673},
+        {name: "一平ちゃん", rank: 3, point: 287},
+        {name: "やきそば弁当", rank: 4, point: 198},
+        {name: "焼そばバゴォーン", rank: 5, point: 91},
+      ],
+
+      imageURL: '',
     }
   },
   props: {},
