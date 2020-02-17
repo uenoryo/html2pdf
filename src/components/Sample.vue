@@ -40,6 +40,13 @@
                           <div><b>¥3,515</b></div>
                         </div>
                       </div>
+
+                      <div class="report__graphs">
+                        <div class="report__graph"></div>
+                        <div class="report__graph">
+                          <RadarChart :chartdata="chartData"/>
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </div>
@@ -61,9 +68,15 @@
 <script>
 import html2canvas from 'html2canvas'
 import jsPDF from 'jspdf'
+import RadarChart from './RadarChart';
 
 export default {
   name: 'Sample',
+
+  components: {
+    RadarChart,
+  },
+
   data: function() {
     return {
       // for html2canvas
@@ -92,6 +105,15 @@ export default {
       ],
 
       imageURL: '',
+
+      chartData: {
+        labels: ["U.F.O.", "ペヤング", "一平ちゃん", "やきそば弁当", "焼そばバゴォーン"],
+        datasets: [{
+          label: "得票数",
+          data: [826, 673, 287, 198, 91],
+          borderColor: "#fc8675",
+        }],
+      },
     }
   },
   props: {},
@@ -228,6 +250,18 @@ export default {
           font-size: 20px;
         }
       }
+    }
+
+    &__graphs {
+      width: 100%;
+      display: flex;
+      margin-top: 40px;
+      justify-content: space-around;
+    }
+
+    &__graph {
+      width: 35%;
+      height: 35%;
     }
   }
 
