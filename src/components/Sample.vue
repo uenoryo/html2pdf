@@ -7,38 +7,42 @@
       <v-col cols=5>
         <div class="previewArea">
           <div class="previewArea__HTML">
-            <div ref="content" class="report">
-              <hr class="report__border">
-              <h3 class="report__date">提出日: 2020/02/07</h3>
-              <h3 class="report__subject">株式会社カップ焼きそば 御中</h3>
-              <h1 class="report__title">結局一番うまい「カップ焼きそば」ランキング</h1>
+            <div ref="content">
+              <div class="report">
+                <div class="report__container">
+                  <hr class="report__border">
+                  <h3 class="report__date">提出日: 2020/02/07</h3>
+                  <h3 class="report__subject">株式会社カップ焼きそば 御中</h3>
+                  <h1 class="report__title">結局一番うまい「カップ焼きそば」ランキング</h1>
 
-              <div class="report__main">
-                <section>
-                  <h2 class="report__headingMiddle">1. サマリー</h2>
-                  <div class="report__summaryTables">
-                    <div class="report__summaryTable">
-                      <div></div>
-                      <div>目 標</div>
-                      <div>実 績</div>
-                    </div>
-                    <div class="report__summaryTable">
-                      <div>成果件数</div>
-                      <div><b>¥0</b></div>
-                      <div><b>¥2,195,261</b></div>
-                    </div>
-                    <div class="report__summaryTable">
-                      <div>成果件数</div>
-                      <div><b>0</b></div>
-                      <div><b>625</b></div>
-                    </div>
-                    <div class="report__summaryTable">
-                      <div>成果単価</div>
-                      <div><b>¥0</b></div>
-                      <div><b>¥3,515</b></div>
-                    </div>
+                  <div class="report__main">
+                    <section>
+                      <h2 class="report__headingMiddle">1. サマリー</h2>
+                      <div class="report__summaryTables">
+                        <div class="report__summaryTable">
+                          <div></div>
+                          <div>目 標</div>
+                          <div>実 績</div>
+                        </div>
+                        <div class="report__summaryTable">
+                          <div>成果件数</div>
+                          <div><b>¥0</b></div>
+                          <div><b>¥2,195,261</b></div>
+                        </div>
+                        <div class="report__summaryTable">
+                          <div>成果件数</div>
+                          <div><b>0</b></div>
+                          <div><b>625</b></div>
+                        </div>
+                        <div class="report__summaryTable">
+                          <div>成果単価</div>
+                          <div><b>¥0</b></div>
+                          <div><b>¥3,515</b></div>
+                        </div>
+                      </div>
+                    </section>
                   </div>
-                </section>
+                </div>
               </div>
             </div>
           </div>
@@ -156,23 +160,33 @@ export default {
 
 
   .report {
-    padding: 20px;
+    // レポートはブラウザで対応できないサイズのフォントを扱うため、レポート全体を1/2に縮小しています
+    // そのため .report 以下のスタイルは、実際の半分の大きさで描画されます
+    transform: scale(0.5);
+
+    &__container {
+      padding: 40px;
+      width: 200%;
+      left: -50%;
+      position: absolute;
+    }
+
     &__title {
-      font-size: 12px;
+      font-size: 16px;
       text-align: center;
-      margin: 30px 60px;
+      margin: 40px 80px;
       padding: 5px 0;
       border-bottom: 1px solid;
     }
 
     &__main {
-      padding: 0 15px;
+      padding: 0 30px;
     }
 
     &__subject, &__date {
-      font-size: 10px;
+      font-size: 12px;
       font-weight: normal;
-      padding: 0 15px;
+      padding: 0 30px;
     }
 
     &__date {
@@ -180,17 +194,17 @@ export default {
     }
 
     &__border {
-      height: 4px;
+      height: 8px;
       background-color: #3c8dbe;
       border: 0;
       margin-bottom: 10px;
     }
 
     &__headingMiddle {
-      font-size: 10px;
+      font-size: 12px;
       background-color: #0b8043;
       color: #fff;
-      padding: 2px 5px;
+      padding: 4px 10px;
     }
 
     &__summaryTables {
