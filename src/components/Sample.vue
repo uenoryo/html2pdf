@@ -172,11 +172,11 @@ export default {
     }
 
     &__title {
-      font-size: 16px;
+      font-size: 18px;
       text-align: center;
-      margin: 40px 80px;
+      margin: 40px 120px;
       padding: 5px 0;
-      border-bottom: 1px solid;
+      border-bottom: 2px solid;
     }
 
     &__main {
@@ -201,7 +201,7 @@ export default {
     }
 
     &__headingMiddle {
-      font-size: 12px;
+      font-size: 14px;
       background-color: #0b8043;
       color: #fff;
       padding: 4px 10px;
@@ -215,12 +215,18 @@ export default {
 
     &__summaryTable {
       div {
-        min-height: 30px;
-        font-size: 6px;
-        width: 100px;
+        min-height: 45px;
+        font-size: 15px;
+        width: 200px;
         text-align: center;
         padding: 6px;
-        border-bottom: 1px solid;
+        border-bottom: 2px solid;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        b {
+          font-size: 20px;
+        }
       }
     }
   }
