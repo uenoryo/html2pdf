@@ -2,7 +2,7 @@
   <v-app>
     <v-app-bar
       app
-      color="primary"
+      color="#3c8dbe"
       dark
       height=55
     >
@@ -29,3 +29,9 @@ export default {
   }),
 };
 </script>
+
+<style lang="scss">
+  main {
+    background-color: #f2f3f5;
+  }
+</style>

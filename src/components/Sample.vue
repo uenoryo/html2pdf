@@ -7,11 +7,11 @@
       <v-col cols=5>
         <div class="previewArea">
           <div class="previewArea__HTML">
-            <div ref="content">
-              コンポーネントにダークテーマを適応します。詳しく知りたい場合は
-              コンポーネントにダークテーマを適応します。詳しく知りたい場合は
-              コンポーネントにダークテーマを適応します。詳しく知りたい場合は
-              コンポーネントにダークテーマを適応します。詳しく知りたい場合は
+            <div ref="content" class="report">
+              <hr class="report__border">
+              <h3 class="report__date">提出日: 2020/02/07</h3>
+              <h3 class="report__subject">株式会社カップ焼きそば 御中</h3>
+              <h1 class="report__title">結局一番うまい「カップ焼きそば」ランキング</h1>
             </div>
           </div>
           <div class="previewArea__Image">
@@ -37,7 +37,7 @@ export default {
       // for html2canvas
       // see: https://html2canvas.hertzen.com/configuration
       canvasOption: {
-        'backgroundColor': '#cfccdd',
+        'backgroundColor': '#ffffff',
         'width': 595,  // A4 サイズ
         'height': 841, // A4 サイズ
       },
@@ -89,18 +89,10 @@ export default {
     margin: 20px 30px;
   }
 
-  .reportBox {
-    width: 100%;
-  }
-
   .saveButton {
     position: fixed!important;
     right: 60px;
     bottom: 9%;
-  }
-
-  .content {
-    //
   }
 
   .previewArea {
@@ -115,7 +107,8 @@ export default {
       width: $a4_width;
       height: $a4_height;
       border: 0px solid #ccc;
-      background-color: #eee;
+      background-color: #fff;
+      border-radius: 2px;
       position: absolute;
       right: 0;
     }
@@ -132,4 +125,34 @@ export default {
       display: none;
     }
   }
+
+
+  .report {
+    padding: 20px;
+    &__title {
+      font-size: 12px;
+      text-align: center;
+      margin: 30px 60px;
+      padding: 5px 0;
+      border-bottom: 1px solid;
+    }
+
+    &__subject, &__date {
+      font-size: 10px;
+      font-weight: normal;
+      padding: 0 15px;
+    }
+
+    &__date {
+      text-align: right;
+    }
+
+    &__border {
+      height: 4px;
+      background-color: #3c8dbe;
+      border: 0;
+      margin-bottom: 10px;
+    }
+  }
+
 </style>
