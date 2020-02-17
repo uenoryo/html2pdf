@@ -6,14 +6,16 @@
       </v-col>
       <v-col cols=5>
         <div class="previewArea">
-          <div ref="content" class="previewArea__HTML">
-            コンポーネントにダークテーマを適応します。詳しく知りたい場合は
-            コンポーネントにダークテーマを適応します。詳しく知りたい場合は
-            コンポーネントにダークテーマを適応します。詳しく知りたい場合は
-            コンポーネントにダークテーマを適応します。詳しく知りたい場合は
+          <div class="previewArea__HTML">
+            <div ref="content">
+              コンポーネントにダークテーマを適応します。詳しく知りたい場合は
+              コンポーネントにダークテーマを適応します。詳しく知りたい場合は
+              コンポーネントにダークテーマを適応します。詳しく知りたい場合は
+              コンポーネントにダークテーマを適応します。詳しく知りたい場合は
+            </div>
           </div>
           <div class="previewArea__Image">
-            <div ref="result" class="report"></div>
+            <img :src="imageURL">
           </div>
           <div>
             <v-btn @click="save" class="saveButton" color="primary">PDFで保存</v-btn>
@@ -32,12 +34,13 @@ export default {
   name: 'Sample',
   data: function() {
     return {
-      'canvasOption': {
+      imageURL: '',
+      canvasOption: {
         'backgroundColor': '#cfccdd',
         'width': 595,  // A4 サイズ
         'height': 841, // A4 サイズ
       },
-      'pdfOption': {
+      pdfOption: {
         'format': 'a4',
         'unit': 'px',
       },
@@ -46,7 +49,7 @@ export default {
   props: {},
   mounted: function() {
     html2canvas(this.$refs.content, this.canvasOption).then((canvas) => {
-      this.$refs.result.appendChild(canvas)
+      this.imageURL = canvas.toDataURL()
     })
   },
   methods: {
@@ -67,7 +70,7 @@ export default {
   $a4_height: 841px;
 
   .sample {
-    margin: 15px 30px;
+    margin: 20px 30px;
   }
 
   .reportBox {
@@ -76,8 +79,12 @@ export default {
 
   .saveButton {
     position: fixed!important;
-    right: 50px;
-    bottom: 10%;
+    right: 60px;
+    bottom: 9%;
+  }
+
+  .content {
+    //
   }
 
   .previewArea {
@@ -95,12 +102,18 @@ export default {
       background-color: #eee;
       position: absolute;
       right: 0;
-      // display: none;
     }
 
     &__Image {
       position: absolute;
       right: 0;
+      width: 100%;
+      img {
+        width: 100%;
+      }
+
+      // HTML を確認する用
+      display: none;
     }
   }
 </style>
