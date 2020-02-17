@@ -12,6 +12,34 @@
               <h3 class="report__date">提出日: 2020/02/07</h3>
               <h3 class="report__subject">株式会社カップ焼きそば 御中</h3>
               <h1 class="report__title">結局一番うまい「カップ焼きそば」ランキング</h1>
+
+              <div class="report__main">
+                <section>
+                  <h2 class="report__headingMiddle">1. サマリー</h2>
+                  <div class="report__summaryTables">
+                    <div class="report__summaryTable">
+                      <div></div>
+                      <div>目 標</div>
+                      <div>実 績</div>
+                    </div>
+                    <div class="report__summaryTable">
+                      <div>成果件数</div>
+                      <div><b>¥0</b></div>
+                      <div><b>¥2,195,261</b></div>
+                    </div>
+                    <div class="report__summaryTable">
+                      <div>成果件数</div>
+                      <div><b>0</b></div>
+                      <div><b>625</b></div>
+                    </div>
+                    <div class="report__summaryTable">
+                      <div>成果単価</div>
+                      <div><b>¥0</b></div>
+                      <div><b>¥3,515</b></div>
+                    </div>
+                  </div>
+                </section>
+              </div>
             </div>
           </div>
           <div class="previewArea__Image">
@@ -137,6 +165,10 @@ export default {
       border-bottom: 1px solid;
     }
 
+    &__main {
+      padding: 0 15px;
+    }
+
     &__subject, &__date {
       font-size: 10px;
       font-weight: normal;
@@ -152,6 +184,30 @@ export default {
       background-color: #3c8dbe;
       border: 0;
       margin-bottom: 10px;
+    }
+
+    &__headingMiddle {
+      font-size: 10px;
+      background-color: #0b8043;
+      color: #fff;
+      padding: 2px 5px;
+    }
+
+    &__summaryTables {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+
+    &__summaryTable {
+      div {
+        min-height: 30px;
+        font-size: 6px;
+        width: 100px;
+        text-align: center;
+        padding: 6px;
+        border-bottom: 1px solid;
+      }
     }
   }
 
