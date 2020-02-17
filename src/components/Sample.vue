@@ -35,8 +35,8 @@ export default {
     return {
       'canvasOption': {
         'backgroundColor': '#cfccdd',
-        'width': 595,
-        'height': 841,
+        'width': 595,  // A4 サイズ
+        'height': 841, // A4 サイズ
       },
       'pdfOption': {
         'format': 'a4',
@@ -53,8 +53,9 @@ export default {
   methods: {
     "save": function() {
       let pdf = new jsPDF(this.pdfOption)
+      let size = pdf.internal.pageSize
       html2canvas(this.$refs.content, this.canvasOption).then((canvas) => {
-        pdf.addImage(canvas.toDataURL(), 'JPEG', 0, 0, 595, 0)
+        pdf.addImage(canvas.toDataURL(), 'JPEG', 0, 0, size.getWidth(), size.getHeight())
         pdf.save('test.pdf')
       })
     },
@@ -91,7 +92,6 @@ export default {
   }
 
   .doc {
-    /*display: none;*/
     border: 1px solid #ccc;
     background-color: #eee;
   }
