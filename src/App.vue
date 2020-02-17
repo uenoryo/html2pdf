@@ -4,7 +4,7 @@
       app
       color="primary"
       dark
-      height=4
+      height=40
     >
     </v-app-bar>
 

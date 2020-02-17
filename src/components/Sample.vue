@@ -1,24 +1,23 @@
 <template>
   <div class="sample">
     <v-row>
-      <v-col cols=6>
-        <div ref="content" class="doc" style="width:300px">
-          <p style="font-size:6px; text-align: center;">
-          コンポーネントにダークテーマを適応します。詳しく知りたい場合は
-          コンポーネントにダークテーマを適応します。詳しく知りたい場合は
-          コンポーネントにダークテーマを適応します。詳しく知りたい場合は
-          コンポーネントにダークテーマを適応します。詳しく知りたい場合は
-        </p>
-        </div>
+      <v-col cols=7>
+        コントロールぱねる
       </v-col>
-      <v-col cols=6>
-        <div class="reportContainer">
-          <div class="reportBox">
+      <v-col cols=5>
+        <div class="previewArea">
+          <div ref="content" class="previewArea__HTML">
+            コンポーネントにダークテーマを適応します。詳しく知りたい場合は
+            コンポーネントにダークテーマを適応します。詳しく知りたい場合は
+            コンポーネントにダークテーマを適応します。詳しく知りたい場合は
+            コンポーネントにダークテーマを適応します。詳しく知りたい場合は
+          </div>
+          <div class="previewArea__Image">
             <div ref="result" class="report"></div>
           </div>
-        </div>
-        <div>
-          <v-btn @click="save" class="saveButton" color="primary">PDFで保存</v-btn>
+          <div>
+            <v-btn @click="save" class="saveButton" color="primary">PDFで保存</v-btn>
+          </div>
         </div>
       </v-col>
     </v-row>
@@ -63,36 +62,45 @@ export default {
 }
 </script>
 
-<style scoped>
-  .sample {
-    margin: 0 30px;
-  }
+<style lang="scss">
+  $a4_width: 595px;
+  $a4_height: 841px;
 
-  .reportContainer {
-    position: fixed;
-    width: 48%;
-    height: 96%;
-    right: 1%;
-    overflow: scroll;
+  .sample {
+    margin: 15px 30px;
   }
 
   .reportBox {
     width: 100%;
   }
 
-  .report {
-    height: 950px;
-    margin-bottom: 20px;
-  }
-
   .saveButton {
-    position: fixed;
-    right: 20px;
-    top: 730px;
+    position: fixed!important;
+    right: 50px;
+    bottom: 10%;
   }
 
-  .doc {
-    border: 1px solid #ccc;
-    background-color: #eee;
+  .previewArea {
+    position: fixed;
+    width: $a4_width;
+    max-height: $a4_height;
+    height: 100%;
+    right: 30px;
+    overflow: scroll;
+
+    &__HTML {
+      width: $a4_width;
+      height: $a4_height;
+      border: 0px solid #ccc;
+      background-color: #eee;
+      position: absolute;
+      right: 0;
+      // display: none;
+    }
+
+    &__Image {
+      position: absolute;
+      right: 0;
+    }
   }
 </style>
