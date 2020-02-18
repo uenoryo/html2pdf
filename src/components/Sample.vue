@@ -42,11 +42,11 @@
                       </div>
 
                       <div class="report__graphs">
-                        <div class="report__graph">
-                          <BarChart :chartdata="barChartData"/>
+                        <div class="report__graph report__graph--bar">
+                          <BarChart :data="barChartData" :option="barChartOption"/>
                         </div>
-                        <div class="report__graph">
-                          <RadarChart :chartdata="radarChartData"/>
+                        <div class="report__graph report__graph--chart">
+                          <RadarChart :data="radarChartData" :option="radarChartOption"/>
                         </div>
                       </div>
                     </section>
@@ -56,24 +56,15 @@
                       <div class="report__dataTables">
                         <table cellspacing="0" cellpadding="0">
                           <thead>
-                            <tr><th>ラベル</th><th>年月</th><th>データ1</th><th>データ2</th><th>データ3</th><th>データ4</th></tr>
+                            <tr><th>ラベル</th><th>年月</th><th>データ1</th><th>データ2</th><th>データ3</th><th>データ4</th><th>データ5</th></tr>
                           </thead>
                           <tbody>
-                              <tr><th rowspan="3">ラベル1</th><td>2018年1月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
-                              <tr>                           <td>2018年2月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
-                              <tr>                           <td>2018年3月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
-                              <tr><th rowspan="3">ラベル2</th><td>2018年1月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
-                              <tr>                           <td>2018年2月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
-                              <tr>                           <td>2018年3月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
-                              <tr><th rowspan="3">ラベル3</th><td>2018年1月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
-                              <tr>                           <td>2018年2月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
-                              <tr>                           <td>2018年3月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
-                              <tr><th rowspan="3">ラベル4</th><td>2018年1月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
-                              <tr>                           <td>2018年2月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
-                              <tr>                           <td>2018年3月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
-                              <tr><th rowspan="3">ラベル5</th><td>2018年1月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
-                              <tr>                           <td>2018年2月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
-                              <tr>                           <td>2018年3月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                              <tr><th rowspan="3">ラベル1</th><td>2018年1月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                              <tr>                           <td>2018年2月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                              <tr>                           <td>2018年3月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                              <tr><th rowspan="3">ラベル2</th><td>2018年1月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                              <tr>                           <td>2018年2月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                              <tr>                           <td>2018年3月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
                           </tbody>
                         </table>
                       </div>
@@ -84,24 +75,24 @@
                       <div class="report__dataTables">
                         <table cellspacing="0" cellpadding="0">
                           <thead>
-                            <tr><th>ラベル</th><th>年月</th><th>データ1</th><th>データ2</th><th>データ3</th><th>データ4</th></tr>
+                            <tr><th>ラベル</th><th>年月</th><th>データ1</th><th>データ2</th><th>データ3</th><th>データ4</th><th>データ5</th></tr>
                           </thead>
                           <tbody>
-                              <tr><th rowspan="3">ラベル1</th><td>2018年1月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
-                              <tr>                           <td>2018年2月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
-                              <tr>                           <td>2018年3月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
-                              <tr><th rowspan="3">ラベル2</th><td>2018年1月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
-                              <tr>                           <td>2018年2月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
-                              <tr>                           <td>2018年3月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
-                              <tr><th rowspan="3">ラベル3</th><td>2018年1月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
-                              <tr>                           <td>2018年2月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
-                              <tr>                           <td>2018年3月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
-                              <tr><th rowspan="3">ラベル4</th><td>2018年1月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
-                              <tr>                           <td>2018年2月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
-                              <tr>                           <td>2018年3月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
-                              <tr><th rowspan="3">ラベル5</th><td>2018年1月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
-                              <tr>                           <td>2018年2月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
-                              <tr>                           <td>2018年3月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                              <tr><th rowspan="3">ラベル1</th><td>2018年1月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                              <tr>                           <td>2018年2月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                              <tr>                           <td>2018年3月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                              <tr><th rowspan="3">ラベル2</th><td>2018年1月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                              <tr>                           <td>2018年2月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                              <tr>                           <td>2018年3月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                              <tr><th rowspan="3">ラベル3</th><td>2018年1月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                              <tr>                           <td>2018年2月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                              <tr>                           <td>2018年3月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                              <tr><th rowspan="3">ラベル4</th><td>2018年1月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                              <tr>                           <td>2018年2月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                              <tr>                           <td>2018年3月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                              <tr><th rowspan="3">ラベル5</th><td>2018年1月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                              <tr>                           <td>2018年2月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                              <tr>                           <td>2018年3月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
                           </tbody>
                         </table>
                       </div>
@@ -166,14 +157,6 @@ export default {
 
       imageURL: '',
 
-      radarChartData: {
-        labels: ["U.F.O.", "ペヤング", "一平ちゃん", "やきそば弁当", "焼そばバゴォーン"],
-        datasets: [{
-          label: "得票数",
-          data: [826, 673, 287, 198, 91],
-          borderColor: "#fc8675",
-        }],
-      },
       barChartData: {
         labels: ["U.F.O.", "ペヤング", "一平ちゃん", "やきそば弁当", "焼そばバゴォーン"],
         datasets: [{
@@ -191,6 +174,27 @@ export default {
           tension: 0,
           fill: false,
         }],
+      },
+      barChartOption: {
+        legend: {
+          display: false,
+        },
+      },
+
+      radarChartData: {
+        labels: ["U.F.O.", "ペヤング", "一平ちゃん", "やきそば弁当", "焼そばバゴォーン"],
+        legend: {
+          display: false,
+        },
+        datasets: [{
+          data: [826, 673, 287, 198, 91],
+          borderColor: "#fc8675",
+        }],
+      },
+      radarChartOption: {
+        legend: {
+          display: false,
+        },
       },
     }
   },
@@ -338,8 +342,14 @@ export default {
     }
 
     &__graph {
-      width: 35%;
-      height: 35%;
+      &--bar {
+        width: 260px;
+        height: 260px;
+      }
+      &--chart {
+        width: 260px;
+        height: 260px;
+      }
     }
 
     &__dataTables {

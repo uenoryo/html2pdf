@@ -4,9 +4,9 @@ import { Bar } from 'vue-chartjs'
 
 export default {
   extends: Bar,
-  props: ['chartdata', 'options'],
+  props: ['data', 'option'],
   mounted () {
-    this.renderChart(this.chartdata, this.options)
+    this.renderChart(this.data, this.option)
   }
 }
 </script>
