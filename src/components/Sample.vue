@@ -50,6 +50,62 @@
                         </div>
                       </div>
                     </section>
+
+                    <section>
+                      <h2 class="report__headingMiddle">2. サンプルデータA</h2>
+                      <div class="report__dataTables">
+                        <table cellspacing="0" cellpadding="0">
+                          <thead>
+                            <tr><th>ラベル</th><th>年月</th><th>データ1</th><th>データ2</th><th>データ3</th><th>データ4</th></tr>
+                          </thead>
+                          <tbody>
+                              <tr><th rowspan="3">ラベル1</th><td>2018年1月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                              <tr>                           <td>2018年2月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                              <tr>                           <td>2018年3月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                              <tr><th rowspan="3">ラベル2</th><td>2018年1月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                              <tr>                           <td>2018年2月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                              <tr>                           <td>2018年3月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                              <tr><th rowspan="3">ラベル3</th><td>2018年1月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                              <tr>                           <td>2018年2月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                              <tr>                           <td>2018年3月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                              <tr><th rowspan="3">ラベル4</th><td>2018年1月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                              <tr>                           <td>2018年2月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                              <tr>                           <td>2018年3月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                              <tr><th rowspan="3">ラベル5</th><td>2018年1月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                              <tr>                           <td>2018年2月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                              <tr>                           <td>2018年3月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+
+                    <section>
+                      <h2 class="report__headingMiddle">2. サンプルデータB</h2>
+                      <div class="report__dataTables">
+                        <table cellspacing="0" cellpadding="0">
+                          <thead>
+                            <tr><th>ラベル</th><th>年月</th><th>データ1</th><th>データ2</th><th>データ3</th><th>データ4</th></tr>
+                          </thead>
+                          <tbody>
+                              <tr><th rowspan="3">ラベル1</th><td>2018年1月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                              <tr>                           <td>2018年2月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                              <tr>                           <td>2018年3月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                              <tr><th rowspan="3">ラベル2</th><td>2018年1月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                              <tr>                           <td>2018年2月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                              <tr>                           <td>2018年3月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                              <tr><th rowspan="3">ラベル3</th><td>2018年1月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                              <tr>                           <td>2018年2月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                              <tr>                           <td>2018年3月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                              <tr><th rowspan="3">ラベル4</th><td>2018年1月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                              <tr>                           <td>2018年2月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                              <tr>                           <td>2018年3月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                              <tr><th rowspan="3">ラベル5</th><td>2018年1月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                              <tr>                           <td>2018年2月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                              <tr>                           <td>2018年3月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
                   </div>
                 </div>
               </div>
@@ -277,7 +333,7 @@ export default {
     &__graphs {
       width: 100%;
       display: flex;
-      margin-top: 40px;
+      margin: 40px 0;
       justify-content: space-around;
     }
 
@@ -285,6 +341,39 @@ export default {
       width: 35%;
       height: 35%;
     }
+
+    &__dataTables {
+      margin: 20px 0;
+      table {
+        width: 100%;
+      }
+      thead {
+        th {
+          font-weight: normal;
+          border-top: 2px solid;
+          border-bottom: 2px solid;
+        }
+      }
+      tbody {
+        td {
+          text-align: right;
+        }
+        th {
+          font-weight: normal;
+          border-bottom: 2px solid;
+        }
+        tr:nth-child(3n+1) {
+          font-weight: bold;
+        }
+        tr:nth-child(3n) td {
+          border-bottom: 2px solid;
+        }
+        tr:nth-child(odd) td {
+          background-color: #99554411;
+        }
+      }
+    }
   }
+
 
 </style>
