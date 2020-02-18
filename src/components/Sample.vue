@@ -124,6 +124,16 @@ export default {
           label: "得票数",
           data: [826, 673, 287, 198, 91],
           borderColor: "#fc8675",
+          order: 1,
+        },
+        {
+          label: "得票数 (line)",
+          data: [826, 673, 287, 198, 91],
+          borderColor: "#fc8675",
+          type: 'line',
+          order: 2,
+          tension: 0,
+          fill: false,
         }],
       },
     }
