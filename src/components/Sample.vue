@@ -23,6 +23,12 @@
                     required
                   ></v-text-field>
                 </v-row>
+                <v-row>
+                  <v-label>テーマカラー</v-label>
+                </v-row>
+                <v-row :style='{"marginTop": "10px"}'>
+                  <v-color-picker v-model="themeColor"></v-color-picker>
+                </v-row>
               </v-container>
             </v-form>
           </div>
@@ -34,7 +40,7 @@
             <div ref="content">
               <div class="report">
                 <div class="report__container">
-                  <hr class="report__border">
+                  <hr class="report__border" :style='{"backgroundColor": themeColor}'>
                   <h3 class="report__date">提出日: 2020/02/07</h3>
                   <h3 class="report__subject">{{ subject }} 御中</h3>
                   <h1 class="report__title">{{ title }}</h1>
@@ -95,7 +101,7 @@
                     </section>
 
                     <section>
-                      <h2 class="report__headingMiddle">2. サンプルデータB</h2>
+                      <h2 class="report__headingMiddle">3. サンプルデータB</h2>
                       <div class="report__dataTables">
                         <table cellspacing="0" cellpadding="0">
                           <thead>
@@ -122,7 +128,7 @@
                       </div>
                     </section>
                   </div>
-                  <hr class="report__border">
+                  <hr class="report__border" :style='{"backgroundColor": themeColor}'>
                 </div>
               </div>
             </div>
@@ -182,6 +188,7 @@ export default {
 
       subject: "株式会社 カップ焼きそば",
       title: "結局一番うまい「カップ焼きそば」ランキング",
+      themeColor: "#3c8dbe",
       imageURL: "",
 
       barChartData: {
