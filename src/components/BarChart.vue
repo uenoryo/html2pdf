@@ -1,5 +1,5 @@
 <script>
-// see https://www.chartjs.org/docs/latest/charts/radar.html
+// see https://www.chartjs.org/docs/latest/charts/bar.html
 import { Bar } from 'vue-chartjs'
 
 export default {
