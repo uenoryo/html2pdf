@@ -263,16 +263,16 @@ export default {
       imageURL: "",
 
       barChartData: {
-        labels: ["U.F.O.", "ペヤング", "一平ちゃん", "やきそば弁当", "ごつ盛り"],
+        labels: ["やきそば弁当", "U.F.O.", "ペヤング", "一平ちゃん", "ごつ盛り"],
         datasets: [{
           label: "点数",
-          data: [826, 673, 287, 198, 91],
+          data: [98, 226, 145, 207, 291],
           borderColor: "#fc8675",
           order: 1,
         },
         {
           label: "得票数 (line)",
-          data: [826, 673, 287, 198, 91],
+          data: [98, 226, 145, 207, 291],
           borderColor: "#fc8675",
           type: 'line',
           order: 2,
@@ -292,7 +292,7 @@ export default {
           display: false,
         },
         datasets: [{
-          data: [826, 673, 287, 198, 91],
+          data: [226, 173, 187, 128, 243],
           borderColor: "#fc8675",
         }],
       },
