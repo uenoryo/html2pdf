@@ -2,7 +2,28 @@
   <div class="sample">
     <v-row>
       <v-col cols=7>
-        <ControllPanel />
+        <div class="ControllPanel">
+          <h2 class="ControllPanel__mainHeading">レポートサンプルだよ</h2>
+          <div class="ControllPanel__form">
+            <v-form>
+              <v-container>
+                <v-row>
+                  <v-col
+                    cols="12"
+                    md="12"
+                  >
+                    <v-text-field
+                      v-model="subject"
+                      :counter="50"
+                      label="宛先"
+                      required
+                    ></v-text-field>
+                  </v-col>
+                </v-row>
+              </v-container>
+            </v-form>
+          </div>
+        </div>
       </v-col>
       <v-col cols=5>
         <div class="previewArea">
@@ -12,7 +33,7 @@
                 <div class="report__container">
                   <hr class="report__border">
                   <h3 class="report__date">提出日: 2020/02/07</h3>
-                  <h3 class="report__subject">株式会社カップ焼きそば 御中</h3>
+                  <h3 class="report__subject">{{ subject }} 御中</h3>
                   <h1 class="report__title">結局一番うまい「カップ焼きそば」ランキング</h1>
 
                   <div class="report__main">
@@ -118,7 +139,6 @@
 <script>
 import html2canvas from 'html2canvas'
 import jsPDF from 'jspdf'
-import ControllPanel from './ControllPanel';
 import BarChart from './BarChart';
 import RadarChart from './RadarChart';
 
@@ -126,7 +146,6 @@ export default {
   name: 'Sample',
 
   components: {
-    ControllPanel,
     BarChart,
     RadarChart,
   },
@@ -158,7 +177,8 @@ export default {
         {name: "焼そばバゴォーン", rank: 5, point: 91},
       ],
 
-      imageURL: '',
+      subject: "株式会社 カップ焼きそば",
+      imageURL: "",
 
       barChartData: {
         labels: ["U.F.O.", "ペヤング", "一平ちゃん", "やきそば弁当", "焼そばバゴォーン"],
@@ -266,6 +286,16 @@ export default {
     }
   }
 
+  .ControllPanel {
+    &__form {
+      margin: 20px 140px 20px 80px;
+    }
+
+    &__mainHeading {
+      font-size: 16px;
+      color: #686868;
+    }
+  }
 
   .report {
     // レポートはブラウザで対応できないサイズのフォントを扱うため、レポート全体を1/2に縮小しています
