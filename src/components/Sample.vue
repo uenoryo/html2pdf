@@ -233,6 +233,8 @@ export default {
       // see: https://html2canvas.hertzen.com/configuration
       canvasOption: {
         'backgroundColor': '#ffffff',
+        'scrollX': 0,
+        'scrollY': 0,
         'width': 595,  // A4 サイズ
         'height': 841, // A4 サイズ
       },
