@@ -319,17 +319,35 @@ export default {
       })
     },
     "dummyData": function() {
-      return Math.floor(Math.random() * Math.floor(100000)) / 100;
+      return Math.floor(Math.random() * Math.floor(40000)) / 100;
     },
     "setLabelToGraph": function(labels) {
       // Bar 更新
       let barChartData = Object.assign({}, this.barChartData)
       barChartData.labels = labels
+      barChartData.datasets.map((d) => {
+        d.data = d.data.slice(0, labels.length)
+
+        if (d.data.length < labels.length) {
+          for (let i = 0; i < labels.length - d.data.length; i++) {
+            d.data.push(this.dummyData())
+          }
+        }
+      })
       this.barChartData = barChartData
 
       // Radar 更新
       let radarChartData = Object.assign({}, this.radarChartData)
       radarChartData.labels = labels
+      radarChartData.datasets.map((d) => {
+        d.data = d.data.slice(0, labels.length)
+
+        if (d.data.length < labels.length) {
+          for (let i = 0; i < labels.length - d.data.length; i++) {
+            d.data.push(this.dummyData())
+          }
+        }
+      })
       this.radarChartData = radarChartData
     }
   },
