@@ -8,17 +8,20 @@
             <v-form>
               <v-container>
                 <v-row>
-                  <v-col
-                    cols="12"
-                    md="12"
-                  >
-                    <v-text-field
-                      v-model="subject"
-                      :counter="50"
-                      label="宛先"
-                      required
-                    ></v-text-field>
-                  </v-col>
+                  <v-text-field
+                    v-model="subject"
+                    :counter="50"
+                    label="宛先"
+                    required
+                  ></v-text-field>
+                </v-row>
+                <v-row>
+                  <v-text-field
+                    v-model="title"
+                    :counter="50"
+                    label="タイトル"
+                    required
+                  ></v-text-field>
                 </v-row>
               </v-container>
             </v-form>
@@ -34,7 +37,7 @@
                   <hr class="report__border">
                   <h3 class="report__date">提出日: 2020/02/07</h3>
                   <h3 class="report__subject">{{ subject }} 御中</h3>
-                  <h1 class="report__title">結局一番うまい「カップ焼きそば」ランキング</h1>
+                  <h1 class="report__title">{{ title }}</h1>
 
                   <div class="report__main">
                     <section>
@@ -178,6 +181,7 @@ export default {
       ],
 
       subject: "株式会社 カップ焼きそば",
+      title: "結局一番うまい「カップ焼きそば」ランキング",
       imageURL: "",
 
       barChartData: {
