@@ -98,6 +98,7 @@
                       </div>
                     </section>
                   </div>
+                  <hr class="report__border">
                 </div>
               </div>
             </div>
@@ -353,7 +354,7 @@ export default {
     }
 
     &__dataTables {
-      margin: 20px 0;
+      margin: 20px 0 40px;
       table {
         width: 100%;
       }
