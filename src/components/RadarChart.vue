@@ -1,12 +1,13 @@
 <script>
 // see https://www.chartjs.org/docs/latest/charts/radar.html
-import { Radar } from 'vue-chartjs'
+import { Radar, mixins } from 'vue-chartjs'
 
 export default {
   extends: Radar,
-  props: ['data', 'option'],
+  mixins: [mixins.reactiveProp, mixins.reactiveData],
+  props: ['chartData', 'options'],
   mounted () {
-    this.renderChart(this.data, this.option)
+    this.renderChart(this.chartData, this.options)
   }
 }
 </script>

@@ -32,7 +32,7 @@
                 <v-row>
                   <v-combobox
                     v-model="labels"
-                    :search-input.sync="search"
+                    @change=setLabelToGraph
                     hide-selected
                       label="要素追加"
                     multiple
@@ -108,10 +108,10 @@
 
                       <div class="report__graphs">
                         <div class="report__graph report__graph--bar">
-                          <BarChart :data="barChartData" :option="barChartOption"/>
+                          <BarChart :chartData="barChartData" :options="barChartOption"/>
                         </div>
                         <div class="report__graph report__graph--chart">
-                          <RadarChart :data="radarChartData" :option="radarChartOption"/>
+                          <RadarChart :chartData="radarChartData" :options="radarChartOption"/>
                         </div>
                       </div>
                     </section>
@@ -257,13 +257,13 @@ export default {
       subject: "株式会社 カップ焼きそば",
       title: "カップ焼きそば レポート",
       themeColor: "#3c8dbe",
-      labels: ["U.F.O.", "ペヤング", "一平ちゃん", "やきそば弁当", "焼そばバゴォーン"],
+      labels:  ["U.F.O.", "ペヤング", "一平ちゃん", "やきそば弁当", "ごつ盛り"],
       sampleDataCountA: 2,
       sampleDataCountB: 5,
       imageURL: "",
 
       barChartData: {
-        labels: ["U.F.O.", "ペヤング", "一平ちゃん", "やきそば弁当", "焼そばバゴォーン"],
+        labels: ["U.F.O.", "ペヤング", "一平ちゃん", "やきそば弁当", "ごつ盛り"],
         datasets: [{
           label: "点数",
           data: [826, 673, 287, 198, 91],
@@ -287,7 +287,7 @@ export default {
       },
 
       radarChartData: {
-        labels: ["U.F.O.", "ペヤング", "一平ちゃん", "やきそば弁当", "焼そばバゴォーン"],
+        labels: ["U.F.O.", "ペヤング", "一平ちゃん", "やきそば弁当", "ごつ盛り"],
         legend: {
           display: false,
         },
@@ -320,6 +320,17 @@ export default {
     },
     "dummyData": function() {
       return Math.floor(Math.random() * Math.floor(100000)) / 100;
+    },
+    "setLabelToGraph": function(labels) {
+      // Bar 更新
+      let barChartData = Object.assign({}, this.barChartData)
+      barChartData.labels = labels
+      this.barChartData = barChartData
+
+      // Radar 更新
+      let radarChartData = Object.assign({}, this.radarChartData)
+      radarChartData.labels = labels
+      this.radarChartData = radarChartData
     }
   },
 }
