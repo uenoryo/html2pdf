@@ -2,7 +2,7 @@
   <div class="sample">
     <v-row>
       <v-col cols=7>
-        コントロールぱねる
+        <ControllPanel />
       </v-col>
       <v-col cols=5>
         <div class="previewArea">
@@ -118,6 +118,7 @@
 <script>
 import html2canvas from 'html2canvas'
 import jsPDF from 'jspdf'
+import ControllPanel from './ControllPanel';
 import BarChart from './BarChart';
 import RadarChart from './RadarChart';
 
@@ -125,6 +126,7 @@ export default {
   name: 'Sample',
 
   components: {
+    ControllPanel,
     BarChart,
     RadarChart,
   },
