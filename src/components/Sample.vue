@@ -30,6 +30,27 @@
                   <v-color-picker v-model="themeColor"></v-color-picker>
                 </v-row>
                 <v-row>
+                  <v-combobox
+                    v-model="labels"
+                    :search-input.sync="search"
+                    hide-selected
+                      label="要素追加"
+                    multiple
+                    persistent-hint
+                    small-chips
+                  >
+                    <template v-slot:no-data>
+                      <v-list-item>
+                        <v-list-item-content>
+                          <v-list-item-title>
+                           <kbd>enter</kbd>  を押して要素を追加
+                          </v-list-item-title>
+                        </v-list-item-content>
+                      </v-list-item>
+                    </template>
+                  </v-combobox>
+                </v-row>
+                <v-row>
                   <v-text-field
                     v-model="sampleDataCountA"
                     label="サンプルデータAのデータ数"
@@ -100,13 +121,35 @@
                       <div class="report__dataTables">
                         <table cellspacing="0" cellpadding="0">
                           <thead>
-                            <tr><th>ラベル</th><th>年月</th><th>データ1</th><th>データ2</th><th>データ3</th><th>データ4</th><th>データ5</th></tr>
+                            <tr>
+                              <th>ラベル</th>
+                              <th>年月</th>
+                              <template v-for="(label, index) of labels">
+                                <th :key="index">{{ label }}</th>
+                              </template>
+                            </tr>
                           </thead>
                           <tbody>
                             <template v-for="n of (Number(sampleDataCountA) < 50 ? Number(sampleDataCountA) : 50 )">
-                              <tr :key="n"><th rowspan="3">ラベル{{ n }}</th><td>2018年1月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
-                              <tr :key="n">                                 <td>2018年2月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
-                              <tr :key="n">                                 <td>2018年3月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                              <tr :key="n">
+                                <th :key="n" rowspan="3">データ{{ n }}</th>
+                                <td :key="n">2018年1月</td>
+                                <td v-for="(label, index) of labels" :key="index">
+                                  <span :key="n">{{ dummyData() }}</span>
+                                </td>
+                              </tr>
+                              <tr :key="n">
+                                <td :key="n">2018年2月</td>
+                                <td v-for="(label, index) of labels" :key="index">
+                                  <span :key="n">{{ dummyData() }}</span>
+                                </td>
+                              </tr>
+                              <tr :key="n">
+                                <td :key="n">2018年3月</td>
+                                <td v-for="(label, index) of labels" :key="index">
+                                  <span :key="n">{{ dummyData() }}</span>
+                                </td>
+                              </tr>
                             </template>
                           </tbody>
                         </table>
@@ -118,14 +161,36 @@
                       <div class="report__dataTables">
                         <table cellspacing="0" cellpadding="0">
                           <thead>
-                            <tr><th>ラベル</th><th>年月</th><th>データ1</th><th>データ2</th><th>データ3</th><th>データ4</th><th>データ5</th></tr>
+                            <tr>
+                              <th>ラベル</th>
+                              <th>年月</th>
+                              <template v-for="(label, index) of labels">
+                                <th :key="index">{{ label }}</th>
+                              </template>
+                            </tr>
                           </thead>
                           <tbody>
-                              <template v-for="n of (Number(sampleDataCountB) < 50 ? Number(sampleDataCountB) : 50 )">
-                                <tr :key="n"><th rowspan="3">ラベル1</th><td>2018年1月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
-                                <tr :key="n">                           <td>2018年2月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
-                                <tr :key="n">                           <td>2018年3月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
-                              </template>
+                            <template v-for="n of (Number(sampleDataCountB) < 50 ? Number(sampleDataCountB) : 50 )">
+                              <tr :key="n">
+                                <th :key="n" rowspan="3">データ{{ n }}</th>
+                                <td :key="n">2018年1月</td>
+                                <td v-for="(label, index) of labels" :key="index">
+                                  <span :key="n">{{ dummyData() }}</span>
+                                </td>
+                              </tr>
+                              <tr :key="n">
+                                <td :key="n">2018年2月</td>
+                                <td v-for="(label, index) of labels" :key="index">
+                                  <span :key="n">{{ dummyData() }}</span>
+                                </td>
+                              </tr>
+                              <tr :key="n">
+                                <td :key="n">2018年3月</td>
+                                <td v-for="(label, index) of labels" :key="index">
+                                  <span :key="n">{{ dummyData() }}</span>
+                                </td>
+                              </tr>
+                            </template>
                           </tbody>
                         </table>
                       </div>
@@ -179,8 +244,6 @@ export default {
         'unit': 'px',
       },
 
-      // sample data
-      // see: https://ranking.goo.ne.jp/column/6231/ranking/52356/
       sampleData: [
         {name: "U.F.O.", rank: 1, point: 826},
         {name: "ペヤング", rank: 2, point: 673},
@@ -190,8 +253,9 @@ export default {
       ],
 
       subject: "株式会社 カップ焼きそば",
-      title: "結局一番うまい「カップ焼きそば」ランキング",
+      title: "カップ焼きそば レポート",
       themeColor: "#3c8dbe",
+      labels: ["U.F.O.", "ペヤング", "一平ちゃん", "やきそば弁当", "焼そばバゴォーン"],
       sampleDataCountA: 2,
       sampleDataCountB: 5,
       imageURL: "",
@@ -199,7 +263,7 @@ export default {
       barChartData: {
         labels: ["U.F.O.", "ペヤング", "一平ちゃん", "やきそば弁当", "焼そばバゴォーン"],
         datasets: [{
-          label: "得票数",
+          label: "点数",
           data: [826, 673, 287, 198, 91],
           borderColor: "#fc8675",
           order: 1,
@@ -252,6 +316,9 @@ export default {
         pdf.save('test.pdf')
       })
     },
+    "dummyData": function() {
+      return Math.floor(Math.random() * Math.floor(100000)) / 100;
+    }
   },
 }
 </script>
@@ -417,6 +484,7 @@ export default {
       tbody {
         td {
           text-align: right;
+          padding-right: 20px;
         }
         th {
           font-weight: normal;
