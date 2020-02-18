@@ -248,6 +248,7 @@ export default {
       border-radius: 2px;
       position: absolute;
       right: 0;
+      margin-bottom: 400px; // 下まで余裕を持ってスクロールできるようにする
     }
 
     &__Image {
