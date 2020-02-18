@@ -26,8 +26,22 @@
                 <v-row>
                   <v-label>テーマカラー</v-label>
                 </v-row>
-                <v-row :style='{"marginTop": "10px"}'>
+                <v-row :style='{"margin": "20px 0px"}'>
                   <v-color-picker v-model="themeColor"></v-color-picker>
+                </v-row>
+                <v-row>
+                  <v-text-field
+                    v-model="sampleDataCountA"
+                    label="サンプルデータAのデータ数"
+                    required
+                  ></v-text-field>
+                </v-row>
+                <v-row>
+                  <v-text-field
+                    v-model="sampleDataCountB"
+                    label="サンプルデータBのデータ数"
+                    required
+                  ></v-text-field>
                 </v-row>
               </v-container>
             </v-form>
@@ -89,12 +103,11 @@
                             <tr><th>ラベル</th><th>年月</th><th>データ1</th><th>データ2</th><th>データ3</th><th>データ4</th><th>データ5</th></tr>
                           </thead>
                           <tbody>
-                              <tr><th rowspan="3">ラベル1</th><td>2018年1月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
-                              <tr>                           <td>2018年2月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
-                              <tr>                           <td>2018年3月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
-                              <tr><th rowspan="3">ラベル2</th><td>2018年1月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
-                              <tr>                           <td>2018年2月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
-                              <tr>                           <td>2018年3月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                            <template v-for="n of (Number(sampleDataCountA) < 50 ? Number(sampleDataCountA) : 50 )">
+                              <tr :key="n"><th rowspan="3">ラベル{{ n }}</th><td>2018年1月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                              <tr :key="n">                                 <td>2018年2月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                              <tr :key="n">                                 <td>2018年3月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                            </template>
                           </tbody>
                         </table>
                       </div>
@@ -108,21 +121,11 @@
                             <tr><th>ラベル</th><th>年月</th><th>データ1</th><th>データ2</th><th>データ3</th><th>データ4</th><th>データ5</th></tr>
                           </thead>
                           <tbody>
-                              <tr><th rowspan="3">ラベル1</th><td>2018年1月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
-                              <tr>                           <td>2018年2月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
-                              <tr>                           <td>2018年3月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
-                              <tr><th rowspan="3">ラベル2</th><td>2018年1月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
-                              <tr>                           <td>2018年2月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
-                              <tr>                           <td>2018年3月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
-                              <tr><th rowspan="3">ラベル3</th><td>2018年1月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
-                              <tr>                           <td>2018年2月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
-                              <tr>                           <td>2018年3月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
-                              <tr><th rowspan="3">ラベル4</th><td>2018年1月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
-                              <tr>                           <td>2018年2月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
-                              <tr>                           <td>2018年3月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
-                              <tr><th rowspan="3">ラベル5</th><td>2018年1月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
-                              <tr>                           <td>2018年2月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
-                              <tr>                           <td>2018年3月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                              <template v-for="n of (Number(sampleDataCountB) < 50 ? Number(sampleDataCountB) : 50 )">
+                                <tr :key="n"><th rowspan="3">ラベル1</th><td>2018年1月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                                <tr :key="n">                           <td>2018年2月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                                <tr :key="n">                           <td>2018年3月</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td><td>123.4</td></tr>
+                              </template>
                           </tbody>
                         </table>
                       </div>
@@ -189,6 +192,8 @@ export default {
       subject: "株式会社 カップ焼きそば",
       title: "結局一番うまい「カップ焼きそば」ランキング",
       themeColor: "#3c8dbe",
+      sampleDataCountA: 2,
+      sampleDataCountB: 5,
       imageURL: "",
 
       barChartData: {
