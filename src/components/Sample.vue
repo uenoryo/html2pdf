@@ -42,9 +42,11 @@
                       </div>
 
                       <div class="report__graphs">
-                        <div class="report__graph"></div>
                         <div class="report__graph">
-                          <RadarChart :chartdata="chartData"/>
+                          <BarChart :chartdata="barChartData"/>
+                        </div>
+                        <div class="report__graph">
+                          <RadarChart :chartdata="radarChartData"/>
                         </div>
                       </div>
                     </section>
@@ -68,12 +70,14 @@
 <script>
 import html2canvas from 'html2canvas'
 import jsPDF from 'jspdf'
+import BarChart from './BarChart';
 import RadarChart from './RadarChart';
 
 export default {
   name: 'Sample',
 
   components: {
+    BarChart,
     RadarChart,
   },
 
@@ -106,7 +110,15 @@ export default {
 
       imageURL: '',
 
-      chartData: {
+      radarChartData: {
+        labels: ["U.F.O.", "ペヤング", "一平ちゃん", "やきそば弁当", "焼そばバゴォーン"],
+        datasets: [{
+          label: "得票数",
+          data: [826, 673, 287, 198, 91],
+          borderColor: "#fc8675",
+        }],
+      },
+      barChartData: {
         labels: ["U.F.O.", "ペヤング", "一平ちゃん", "やきそば弁当", "焼そばバゴォーン"],
         datasets: [{
           label: "得票数",
